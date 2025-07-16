@@ -3,78 +3,468 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hakkımızda | By-KA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <title>Hakkımızda | Ditok Dental</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="images/logo.png" type="image/png">
   <style>
-    body {
+    :root {
+      --primary-color: #0F4C81;
+      --secondary-color: #4A90E2;
+      --accent-color: #27AE60;
+      --text-color: #2C3E50;
+      --light-text: #7F8C8D;
+      --background-color: #F5F6FA;
+      --card-background: #FFFFFF;
+      --border-color: #E5E9F2;
+      --hover-color: #EDF2F7;
+      --shadow-color: rgba(15, 76, 129, 0.08);
+      --heading-font: 'Plus Jakarta Sans', sans-serif;
+      --body-font: 'Inter', sans-serif;
+      --font-size-xs: 0.75rem;
+      --font-size-sm: 0.875rem;
+      --font-size-base: 1rem;
+      --font-size-lg: 1.125rem;
+      --font-size-xl: 1.25rem;
+      --font-size-2xl: 1.5rem;
+      --font-size-3xl: 1.875rem;
+      --font-size-4xl: 2.25rem;
+      --font-size-5xl: 3rem;
+      --line-height-tight: 1.2;
+      --line-height-normal: 1.5;
+      --line-height-relaxed: 1.75;
+    }
+
+    * {
       margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background-color: #f5f5f5;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--body-font);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-normal);
+      background-color: var(--background-color);
+      color: var(--text-color);
     }
 
     .container {
-      max-width: 1000px;
-      margin: 60px auto;
-      background: #fff;
-      border-radius: 16px;
-      padding: 60px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 24px;
-      color: #1d1e33;
+    /* Header Stilleri */
+    .main-header {
+      background: var(--card-background);
+      padding: 20px 0;
+      box-shadow: 0 2px 10px var(--shadow-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    p {
-      font-size: 17px;
-      line-height: 1.8;
-      color: #444;
+    .header-content {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 20px;
     }
 
-    footer {
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      display: block;
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: var(--heading-font);
+      font-size: var(--font-size-4xl);
+      font-weight: 600;
+      color: var(--primary-color);
+      text-align: left;
+    }
+
+    .brand-slogan {
+      font-family: var(--body-font);
+      font-size: var(--font-size-sm);
+      color: var(--light-text);
       text-align: center;
-      font-size: 14px;
-      color: #999;
-      margin: 60px 0 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-family: var(--body-font);
+      font-size: var(--font-size-base);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(rgba(15, 76, 129, 0.95), rgba(74, 144, 226, 0.9)), url('images/about-hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-family: var(--heading-font);
+      font-size: var(--font-size-5xl);
+      font-weight: 700;
+      line-height: var(--line-height-tight);
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--body-font);
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-relaxed);
+      color: #EDF2F7;
+      margin-bottom: 40px;
+    }
+
+    /* Hakkımızda İçerik */
+    .about-section {
+      padding: 80px 0;
+      background: var(--card-background);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px var(--shadow-color);
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .section-title {
+      font-family: var(--heading-font);
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .about-text {
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-relaxed);
+      color: var(--text-color);
+    }
+
+    .values-section {
+      padding: 80px 0;
+      background: var(--background-color);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .value-card {
+      background: var(--card-background);
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px var(--shadow-color);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .value-icon {
+      font-size: 48px;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+
+    .value-title {
+      font-family: var(--heading-font);
+      font-size: var(--font-size-xl);
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 15px;
+    }
+
+    .value-description {
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-relaxed);
+      color: var(--light-text);
+    }
+
+    /* Footer Stilleri */
+    .main-footer {
+      background: var(--primary-color);
+      color: var(--card-background);
+      padding: 50px 0 30px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-section h3 {
+      font-family: var(--heading-font);
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+    }
+
+    .footer-section p {
+      font-family: var(--body-font);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-relaxed);
+      color: #bdc3c7;
+      margin-bottom: 15px;
+    }
+
+    .footer-section a {
+      color: var(--card-background);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--secondary-color);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #EDF2F7;
+    }
+
+    /* Responsive Tasarım */
+    @media (max-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-image {
+        height: 300px;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .hero-title {
+        font-size: var(--font-size-4xl);
+      }
+
+      .hero-subtitle {
+        font-size: var(--font-size-lg);
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-section,
+      .values-section {
+        padding: 60px 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .logo img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .brand-name {
+        font-size: var(--font-size-2xl);
+      }
+
+      .hero-title {
+        font-size: var(--font-size-3xl);
+      }
+
+      .section-title {
+        font-size: var(--font-size-2xl);
+      }
+
+      .about-text {
+        font-size: var(--font-size-base);
+      }
     }
   </style>
 </head>
 <body>
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="Ditok Dental Logo">
+          <div>
+            <div class="brand-name">Ditok Dental</div>
+            <div class="brand-slogan">Profesyonel Diş Ürünleri</div>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html">Ana Sayfa</a>
+          <a href="index.html#product-container">Ürünler</a>
+          <a href="hakkimizda.html">Hakkımızda</a>
+          <a href="iletisim.html">İletişim</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-  <div class="container">
-    <h1>Hakkımızda</h1>
-    <p>
-      By-KA, kaliteli ve özgün tasarımlarıyla müşterilerine şıklığı ve rahatlığı bir arada sunmayı hedefleyen bir giyim markasıdır.
-      Moda dünyasında sade ama etkileyici bir çizgiye sahip ürünlerimizle, her tarza hitap eden seçenekler sunuyoruz. 
-      Müşteri memnuniyeti ve güvenilir alışveriş deneyimi bizim için önceliklidir.
-    </p>
-  </div>
-  <div style="text-align: center; margin: 60px 0;">
-    <a href="index.html" style="
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background-color: transparent;
-      color: #1d1e33;
-      font-size: 16px;
-      font-weight: 600;
-      border: none;
-      border-bottom: 2px solid #1d1e33;
-      padding: 8px 0;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    " onmouseover="this.style.color='#db2b39'; this.style.borderBottom='2px solid #db2b39'"
-       onmouseout="this.style.color='#1d1e33'; this.style.borderBottom='2px solid #1d1e33'">
-      <span style="font-size: 20px;">←</span> Ana Sayfaya Dön
-    </a>
-  </div>
-  
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Hakkımızda</h1>
+        <p class="hero-subtitle">20 yılı aşkın tecrübemizle diş sağlığı sektöründe güvenilir çözüm ortağınız</p>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    © 2025 By-KA. Tüm hakları saklıdır.
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <img src="images/about-image.jpg" alt="Ditok Dental Ofis" class="about-image">
+        <div class="about-content">
+          <h2 class="section-title">Biz Kimiz?</h2>
+          <p class="about-text">
+            Ditok Dental, 2003 yılında İstanbul'da kurulmuş, diş sağlığı sektöründe faaliyet gösteren öncü bir kuruluştur. 20 yılı aşkın tecrübemizle, diş hekimlerine ve diş kliniklerine yüksek kaliteli ürünler sunmaktayız.
+          </p>
+          <p class="about-text">
+            Misyonumuz, diş sağlığı profesyonellerine en kaliteli ürünleri sunarak, hastaların tedavi süreçlerine katkıda bulunmaktır. Bu doğrultuda, dünya standartlarında ürünleri Türkiye pazarına kazandırmakta ve yerli üretimimizle değer katmaktayız.
+          </p>
+          <p class="about-text">
+            Vizyonumuz, diş sağlığı sektöründe güvenilir bir çözüm ortağı olarak, yenilikçi ürünler ve hizmetlerle sektörün gelişimine öncülük etmektir.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align: center;">Değerlerimiz</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <i class="fas fa-medal value-icon"></i>
+          <h3 class="value-title">Kalite</h3>
+          <p class="value-description">
+            En yüksek kalite standartlarında ürünler sunarak, müşterilerimizin beklentilerini aşmayı hedefliyoruz.
+          </p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-handshake value-icon"></i>
+          <h3 class="value-title">Güvenilirlik</h3>
+          <p class="value-description">
+            Müşterilerimizle güvene dayalı, uzun vadeli ilişkiler kurarak sürdürülebilir başarıyı hedefliyoruz.
+          </p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-lightbulb value-icon"></i>
+          <h3 class="value-title">Yenilikçilik</h3>
+          <p class="value-description">
+            Sektördeki yenilikleri takip ederek, en son teknolojileri müşterilerimize sunmayı amaçlıyoruz.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Hakkımızda</h3>
+        <p>Ditok Dental, diş sağlığı sektöründe 20 yılı aşkın tecrübesiyle profesyonel diş ürünleri sunmaktadır.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Hızlı Erişim</h3>
+        <p><a href="index.html#product-container">Ürünler</a></p>
+        <p><a href="hakkimizda.html">Hakkımızda</a></p>
+        <p><a href="iletisim.html">İletişim</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>İletişim</h3>
+        <p>Email: info@ditokdental.com</p>
+        <p>Tel: +90 (212) XXX XX XX</p>
+        <p>Adres: İstanbul, Türkiye</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Ditok Dental - Tüm hakları saklıdır.</p>
+    </div>
   </footer>
-
 </body>
 </html>

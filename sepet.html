@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sepetim | Ditok Dental</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <style>
+    :root {
+      --main-color: #0F4C81;
+      --bg-color: #fff;
+      --text-color: #222;
+      --border-radius: 12px;
+      --shadow: 0 4px 16px rgba(15,76,129,0.07);
+    }
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .cart-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--bg-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 32px 24px;
+    }
+    .cart-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: var(--main-color);
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .cart-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+      background: var(--bg-color);
+    }
+    .cart-table th, .cart-table td {
+      padding: 14px 10px;
+      text-align: left;
+      border-bottom: 1px solid #e6eaf0;
+    }
+    .cart-table th {
+      background: #f4f8fb;
+      color: var(--main-color);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .cart-table img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #f4f8fb;
+      border: 1px solid #e6eaf0;
+    }
+    .remove-btn {
+      background: var(--main-color);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+    .remove-btn:hover {
+      background: #083358;
+    }
+    .clear-cart-btn {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 20px;
+      float: right;
+      transition: background 0.2s;
+    }
+    .clear-cart-btn:hover {
+      background: #c0392b;
+    }
+    .total-row td {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--main-color);
+      background: #f4f8fb;
+      border-bottom: none;
+    }
+    .empty-cart {
+      text-align: center;
+      color: #888;
+      font-size: 1.2rem;
+      margin: 40px 0 20px 0;
+    }
+    @media (max-width: 700px) {
+      .cart-container { padding: 10px; }
+      .cart-title { font-size: 1.3rem; }
+      .cart-table th, .cart-table td { padding: 8px 4px; font-size: 13px; }
+      .cart-table img { width: 40px; height: 40px; }
+    }
+    @media (max-width: 480px) {
+      .cart-container { padding: 2px; }
+      .cart-title { font-size: 1.1rem; }
+      .cart-table th, .cart-table td { font-size: 11px; }
+    }
+    .pay-btn {
+      background: #0F4C81;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 16px 36px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px rgba(15,76,129,0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pay-btn:hover {
+      background: #083358;
+      transform: scale(1.04);
+    }
+    @media (max-width: 600px) {
+      .pay-btn {
+        font-size: 15px;
+        padding: 12px 18px;
+      }
+    }
+    .main-header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(15,76,129,0.08);
+      padding: 18px 0 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .main-header .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+    }
+    .brand-name {
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #0F4C81;
+    }
+    .brand-slogan {
+      font-size: 13px;
+      color: #7F8C8D;
+    }
+    .nav-links a {
+      color: #0F4C81;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: #083358;
+    }
+    @media (max-width: 700px) {
+      .header-content { flex-direction: column; gap: 10px; }
+      .nav-links { flex-wrap: wrap; gap: 10px; justify-content: center; }
+      .brand-name { font-size: 20px; }
+      .logo img { height: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+          <img src="images/logo.png" alt="Ditok Dental Logo" style="height:50px;">
+          <div>
+            <div class="brand-name" style="font-size:28px;font-weight:600;color:#0F4C81;">Ditok Dental</div>
+            <div class="brand-slogan" style="font-size:13px;color:#7F8C8D;">Profesyonel Diş Ürünleri</div>
+          </div>
+        </a>
+        <nav class="nav-links" style="display:flex;gap:22px;margin-left:auto;">
+          <a href="index.html" style="color:#0F4C81;text-decoration:none;font-weight:500;">Ana Sayfa</a>
+          <a href="index.html#product-container" style="color:#0F4C81;text-decoration:none;font-weight:500;">Ürünler</a>
+          <a href="hakkimizda.html" style="color:#0F4C81;text-decoration:none;font-weight:500;">Hakkımızda</a>
+          <a href="iletisim.html" style="color:#0F4C81;text-decoration:none;font-weight:500;">İletişim</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="cart-container">
+    <h1 class="cart-title"><i class="fas fa-shopping-cart"></i> Sepetim</h1>
+    <button class="clear-cart-btn" onclick="sepetiTemizle()"><i class="fas fa-trash"></i> Sepeti Temizle</button>
+    <div id="cart-content"></div>
+  </div>
+  <script>
+    // Sepeti yükle ve tabloya yaz
+    function sepetiGoster() {
+      const sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+      const cartContent = document.getElementById('cart-content');
+      if (sepet.length === 0) {
+        cartContent.innerHTML = '<div class="empty-cart">Sepetiniz boş.</div>';
+        return;
+      }
+      let toplam = 0;
+      let table = `<table class='cart-table'>
+        <thead>
+          <tr>
+            <th>Ürün Görseli</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Sil</th>
+          </tr>
+        </thead>
+        <tbody>`;
+      sepet.forEach((urun, i) => {
+        toplam += Number(urun.fiyat);
+        table += `<tr>
+          <td><img src="${urun.resim}" alt="${urun.ad}"></td>
+          <td>${urun.ad}</td>
+          <td>${Number(urun.fiyat).toLocaleString('tr-TR', {minimumFractionDigits:2})} TL</td>
+          <td><button class='remove-btn' onclick='urunuSil(${i})'>Sil</button></td>
+        </tr>`;
+      });
+      table += `<tr class='total-row'><td colspan='2'>Toplam</td><td colspan='2'>${toplam.toLocaleString('tr-TR', {minimumFractionDigits:2})} TL</td></tr>`;
+      table += '</tbody></table>';
+      table += `<div style="text-align:right;margin-top:24px;">
+        <button class='pay-btn' onclick='odemeYap()'>
+          <i class="fas fa-credit-card"></i> Ödeme Yap
+        </button>
+      </div>`;
+      cartContent.innerHTML = table;
+    }
+    // Ürün sil
+    function urunuSil(index) {
+      let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+      sepet.splice(index, 1);
+      localStorage.setItem('sepet', JSON.stringify(sepet));
+      sepetiGoster();
+    }
+    // Sepeti tamamen temizle
+    function sepetiTemizle() {
+      if (confirm('Sepeti tamamen silmek istediğinize emin misiniz?')) {
+        localStorage.removeItem('sepet');
+        sepetiGoster();
+      }
+    }
+    // Ödeme yap butonu fonksiyonu (şimdilik sadece uyarı)
+    function odemeYap() {
+      alert('Ödeme işlemi başlatıldı!');
+    }
+    // Sayfa yüklendiğinde sepeti göster
+    document.addEventListener('DOMContentLoaded', sepetiGoster);
+  </script>
+</body>
+</html> 
