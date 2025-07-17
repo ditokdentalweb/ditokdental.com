@@ -132,7 +132,7 @@
       color: var(--text-color);
       font-size: 42px;
       transition: all 0.3s ease;
-      opacity: 0.9;
+      opacity: 0.8;
       padding: 12px;
     }
 
@@ -585,11 +585,11 @@
 
     .action-btn {
       flex: 1;
-      padding: 12px 15px;
+      padding: 5px 8px; /* Daha da küçültüldü */
       border: none;
       border-radius: 8px;
       font-family: var(--body-font);
-      font-size: var(--font-size-sm);
+      font-size: 0.85rem; /* Daha da küçültüldü */
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1216,13 +1216,13 @@
           <a href="https://www.trendyol.com/magaza/ditok-dental-m-123456" target="_blank" class="platform-link trendyol-link" title="Ditok Dental Trendyol Mağazası">
             <i class="fab fa-trendyol"></i>
           </a>
-          <a href="https://www.hepsiburada.com/ditok-dental" target="_blank" class="platform-link hepsiburada-link" title="Ditok Dental Hepsiburada Mağazası">
+          <a href="https://www.trendyol.com/magaza/ditok-dental-m-918952?sst=0" target="_blank" class="platform-link hepsiburada-link" title="Ditok Dental Hepsiburada Mağazası">
             <i class="fas fa-shopping-bag"></i>
           </a>
           <a href="https://www.instagram.com/ditokdental" target="_blank" class="platform-link instagram-link" title="Ditok Dental Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://wa.me/905384551441?text=Ditok%20Dental%20hakkında%20bilgi%20almak%20istiyorum" target="_blank" class="platform-link whatsapp-link" title="Ditok Dental WhatsApp">
+          <a href="https://wa.me/905384551441" target="_blank" class="platform-link whatsapp-link" title="Ditok Dental WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
         </div>
@@ -1408,8 +1408,8 @@
       <div class="footer-section">
         <h3>İletişim</h3>
         <p>Email: info@ditokdental.com</p>
-        <p>Tel: +90 (212) XXX XX XX</p>
-        <p>Adres: İstanbul, Türkiye</p>
+        <p>Tel: +90 538 455 14 41</p>
+        <p>Adres: Kaleardı, Muhittin Fisunoğlu Cd. No:77 D:1C, 60100 Tokat Merkez/Tokat</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1653,6 +1653,11 @@
 
     // Kategori filtreleme fonksiyonunu güncelle
     function filterProducts(category) {
+      // Ürünler bölümüne kaydır
+      const productSection = document.getElementById('product-container');
+      if (productSection) {
+        productSection.scrollIntoView({ behavior: 'smooth' });
+      }
       // Aktif kategoriyi güncelle
       activeCategory = category;
 
